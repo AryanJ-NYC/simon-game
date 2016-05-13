@@ -15,3 +15,46 @@ body, #container-row {
     transform: translateY(-50%);
     border-radius: 50%;
 }
+
+.button-row {
+    height: 50%;
+}
+
+#green-button {
+    top: 12%;
+    left: 3%;
+    background: green;
+    border-top-left-radius: 100%;
+}
+
+#red-button {
+    top: 12%;
+    left: 7%;
+    background: red;
+    border-top-right-radius: 100%;
+}
+
+#yellow-button {
+    top: 8%;
+    left: 3%;
+    background: yellow;
+    border-bottom-left-radius: 100%;
+}
+
+#blue-button {
+    top: 8%;
+    left: 7%;
+    background: blue;
+    border-bottom-right-radius: 100%;
+}
+
+#white-box {
+    height: 45%;
+    width: 45%;
+    top: 27.5%;
+    left: 27.5%;
+    background-color: white;
+    position: absolute;
+    border-radius: 50%;
+    border: 20px #101010 solid;
+}

@@ -57,4 +57,11 @@ body, #container-row {
     position: absolute;
     border-radius: 50%;
     border: 20px #101010 solid;
+
+}
+
+.text-center {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 5vw;
+    margin-top: 27.5%;
 }

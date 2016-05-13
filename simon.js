@@ -31,8 +31,7 @@ function resizeButtons() {
     var buttonRow = $('.button-row'),
         rowHeight = buttonRow.height(),
         rowWidth = buttonRow.width();
-    var buttons = $('.button'),
-        buttonWidth = buttons.parent();
+    var buttons = $('.button');
     buttons.height(rowHeight * .8);
     buttons.width(rowWidth * .5 * .8);
 }

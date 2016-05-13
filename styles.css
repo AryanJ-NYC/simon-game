@@ -12,7 +12,7 @@ body, #container-row {
 }
 
 .black-bg {
-    background: #101010;
+    background: #222222;
     height: 50vh;
     position: relative;
     top: 50%;
@@ -25,29 +25,29 @@ body, #container-row {
 }
 
 #green-button {
-    top: 10%;
-    left: 4.5%;
+    top: 9%;
+
     background: #43B929;
     border-top-left-radius: 100%;
 }
 
 #red-button {
-    top: 10%;
-    left: 9%;
+    top: 9%;
+
     background: #E92B04;
     border-top-right-radius: 100%;
 }
 
 #yellow-button {
-    top: 11%;
-    left: 4.5%;
+    top: 9%;
+
     background: #E5E503;
     border-bottom-left-radius: 100%;
 }
 
 #blue-button {
-    top: 11%;
-    left: 9%;
+    top: 9%;
+
     background: #000BFC;
     border-bottom-right-radius: 100%;
 }

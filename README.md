@@ -1,2 +1,2 @@
 # simon-game
-A Simon emulator written in AngularJS.
+A Simon emulator written in jQuery.

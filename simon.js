@@ -28,6 +28,7 @@ $(document).ready(function () {
 
     currentPattern += chooseRandomButton();
     console.log(currentPattern);
+    updateScoreboard(currentPattern);
     showPattern(currentPattern);
 
     $('.button').click(function () {
@@ -39,6 +40,7 @@ $(document).ready(function () {
             disableButtons();
             playerChoicePattern = "";
             currentPattern += chooseRandomButton();
+            updateScoreboard(currentPattern);
             showPattern(currentPattern);
             pressNumber = 0;
         } else if (playerChoicePattern.charAt(pressNumber) != currentPattern.charAt(pressNumber)) {
@@ -46,6 +48,7 @@ $(document).ready(function () {
             disableButtons();
             playerChoicePattern = "";
             showPattern(currentPattern);
+            pressNumber = 0;
         } else {
             ++pressNumber;
         }
@@ -109,4 +112,8 @@ function disableButtons() {
 function enableButtons() {
     console.log("EnABLE!");
     $('.button').prop('disabled', false);
+}
+
+function updateScoreboard(currentPattern) {
+    $('#score-counter').text(currentPattern.length - 1);
 }

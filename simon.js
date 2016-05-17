@@ -22,7 +22,8 @@ $(document).ready(function () {
         YELLOW = 2,
         BLUE = 3,
         playerChoicePattern = "",
-        currentPattern = "";
+        currentPattern = "",
+        pressNumber = 0;
     buttons = ['#green-button', '#red-button', '#yellow-button', '#blue-button'];
 
     currentPattern += chooseRandomButton();
@@ -30,15 +31,23 @@ $(document).ready(function () {
     showPattern(currentPattern);
 
     $('.button').click(function () {
+        console.log("Press number: " + pressNumber);
         playerChoicePattern += this.dataset.id;
         console.log("Players choice pattern is: " + playerChoicePattern + ". Real pattern is: " + currentPattern);
         if (playerChoicePattern == currentPattern) {
-            console.log("Patterns Match!");
+            console.log("Patterns match!");
             disableButtons();
             playerChoicePattern = "";
             currentPattern += chooseRandomButton();
             showPattern(currentPattern);
-
+            pressNumber = 0;
+        } else if (playerChoicePattern.charAt(pressNumber) != currentPattern.charAt(pressNumber)) {
+            console.log("Patterns don't match!");
+            disableButtons();
+            playerChoicePattern = "";
+            showPattern(currentPattern);
+        } else {
+            ++pressNumber;
         }
     });
 });
@@ -84,19 +93,20 @@ function showPattern(pattern) {
             setTimeout(function () {
                 $(buttonId).css('opacity', 0.7);
                 enableButtons()
-            }, 1000);
+            }, 700);
             if (i < pattern.length) highlightNextButton(pattern);
         }, 1000);
-        enableButtons();
     }
     var i = 0;
     highlightNextButton(pattern);
 }
 
 function disableButtons() {
+    console.log("DISABLE!");
     $('.button').prop('disabled', true);
 }
 
 function enableButtons() {
+    console.log("EnABLE!");
     $('.button').prop('disabled', false);
 }

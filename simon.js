@@ -28,12 +28,17 @@ $(document).ready(function () {
     currentPattern += chooseRandomButton();
     console.log(currentPattern);
     showPattern(currentPattern);
+
     $('.button').click(function () {
         playerChoicePattern += this.dataset.id;
+        console.log("Players choice pattern is: " + playerChoicePattern + ". Real pattern is: " + currentPattern);
         if (playerChoicePattern == currentPattern) {
-            console.log("Patterns Match");
+            console.log("Patterns Match!");
             disableButtons();
+            playerChoicePattern = "";
             currentPattern += chooseRandomButton();
+            showPattern(currentPattern);
+
         }
     });
 });
@@ -70,16 +75,22 @@ function chooseRandomButton() {
 }
 
 function showPattern(pattern) {
-    setTimeout(function () {
-        for (var i = 0; i < pattern.length; i++) {
-            var buttonId = buttons[pattern[i]];
+    function highlightNextButton(pattern) {
+        setTimeout(function () {
+            var nextButton = pattern.charAt(i++),
+                buttonId = buttons[nextButton];
+            console.log(buttonId);
             $(buttonId).css('opacity', 1);
             setTimeout(function () {
                 $(buttonId).css('opacity', 0.7);
                 enableButtons()
             }, 1000);
-        }
-    }, 2000);
+            if (i < pattern.length) highlightNextButton(pattern);
+        }, 1000);
+        enableButtons();
+    }
+    var i = 0;
+    highlightNextButton(pattern);
 }
 
 function disableButtons() {

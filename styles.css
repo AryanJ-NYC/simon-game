@@ -70,3 +70,7 @@ body, #container-row {
     font-size: 5vw;
     margin-top: 27.5%;
 }
+
+button:focus {
+    outline: none;
+}

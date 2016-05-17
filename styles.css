@@ -69,10 +69,16 @@ body, #container-row {
     font-family: 'Orbitron', sans-serif;
     font-size: 5vw;
     margin-top: 27.5%;
+    margin-bottom: 0;
 }
 
 button:focus {
     outline: none;
+}
+
+#score-label {
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
 }
 
 #score-counter {
@@ -80,5 +86,5 @@ button:focus {
     border: 4px #331426 solid;
     background: #36000f;
     color: #78002b;
-    font-size: 2vw;
+    font-size: 2.3vw;
 }

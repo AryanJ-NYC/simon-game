@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    disableButtons();
     blackBaseHeightEqualsWidth();
     resizeButtons();
 
@@ -19,13 +20,22 @@ $(document).ready(function () {
         GREEN = 0,
         RED = 1,
         YELLOW = 2,
-        BLUE = 3;
+        BLUE = 3,
+        playerChoicePattern = "",
+        currentPattern = "";
     buttons = ['#green-button', '#red-button', '#yellow-button', '#blue-button'];
-    var currentPattern = [];
-    currentPattern.push(chooseRandomButton());
-    showPattern(currentPattern);
 
-    // TODO player move
+    currentPattern += chooseRandomButton();
+    console.log(currentPattern);
+    showPattern(currentPattern);
+    $('.button').click(function () {
+        playerChoicePattern += this.dataset.id;
+        if (playerChoicePattern == currentPattern) {
+            console.log("Patterns Match");
+            disableButtons();
+            currentPattern += chooseRandomButton();
+        }
+    });
 });
 
 function blackBaseHeightEqualsWidth() {
@@ -60,13 +70,22 @@ function chooseRandomButton() {
 }
 
 function showPattern(pattern) {
-    $('.button').prop('disabled', true);
-    for (var i = 0; i < pattern.length; i++) {
-        var buttonId = buttons[pattern[i]];
-        $(buttonId).css('opacity', 0.7);
-        setTimeout(function() {
+    setTimeout(function () {
+        for (var i = 0; i < pattern.length; i++) {
+            var buttonId = buttons[pattern[i]];
             $(buttonId).css('opacity', 1);
-            $('.button').prop('disabled', false);
-        }, 1000);
-    }
+            setTimeout(function () {
+                $(buttonId).css('opacity', 0.7);
+                enableButtons()
+            }, 1000);
+        }
+    }, 2000);
+}
+
+function disableButtons() {
+    $('.button').prop('disabled', true);
+}
+
+function enableButtons() {
+    $('.button').prop('disabled', false);
 }

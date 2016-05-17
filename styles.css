@@ -28,29 +28,29 @@ body, #container-row {
 
 #green-button {
     top: 9%;
-
     background: #43B929;
+    opacity: 0.7;
     border-top-left-radius: 100%;
 }
 
 #red-button {
     top: 9%;
-
     background: #E92B04;
+    opacity: 0.7;
     border-top-right-radius: 100%;
 }
 
 #yellow-button {
     top: 9%;
-
     background: #E5E503;
+    opacity: 0.7;
     border-bottom-left-radius: 100%;
 }
 
 #blue-button {
     top: 9%;
-
     background: #000BFC;
+    opacity: 0.7;
     border-bottom-right-radius: 100%;
 }
 
@@ -63,7 +63,6 @@ body, #container-row {
     position: absolute;
     border-radius: 50%;
     border: 20px #101010 solid;
-
 }
 
 .text-center {

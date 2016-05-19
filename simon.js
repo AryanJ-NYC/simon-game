@@ -1,3 +1,9 @@
+var GREEN = 0,
+    RED = 1,
+    YELLOW = 2,
+    BLUE = 3,
+    buttons = $('.button');
+
 $(document).ready(function () {
     disableButtons();
     blackBaseHeightEqualsWidth();
@@ -5,6 +11,7 @@ $(document).ready(function () {
 
     var initialWindowHeight = $(window).height(),
         initialWindowWidth = $(window).width;
+    
     $(window).resize(function () {
         var currentWindowHeight = $(window).height(),
             currentWindowWidth = $(window).width();
@@ -17,26 +24,17 @@ $(document).ready(function () {
     });
 
     var powerOn = true,
-        GREEN = 0,
-        RED = 1,
-        YELLOW = 2,
-        BLUE = 3,
         playerChoicePattern = "",
         currentPattern = "",
         pressNumber = 0;
-    buttons = ['#green-button', '#red-button', '#yellow-button', '#blue-button'];
 
     currentPattern += chooseRandomButton();
-    console.log(currentPattern);
     updateScoreboard(currentPattern);
     showPattern(currentPattern);
 
-    $('.button').click(function () {
-        console.log("Press number: " + pressNumber);
-        playerChoicePattern += this.dataset.id;
-        console.log("Players choice pattern is: " + playerChoicePattern + ". Real pattern is: " + currentPattern);
+    buttons.click(function () {
+        playerChoicePattern += parseInt(this.dataset.id);
         if (playerChoicePattern == currentPattern) {
-            console.log("Patterns match!");
             disableButtons();
             playerChoicePattern = "";
             currentPattern += chooseRandomButton();
@@ -44,7 +42,6 @@ $(document).ready(function () {
             showPattern(currentPattern);
             pressNumber = 0;
         } else if (playerChoicePattern.charAt(pressNumber) != currentPattern.charAt(pressNumber)) {
-            console.log("Patterns don't match!");
             disableButtons();
             playerChoicePattern = "";
             showPattern(currentPattern);
@@ -52,6 +49,10 @@ $(document).ready(function () {
         } else {
             ++pressNumber;
         }
+    });
+
+    buttons.mousedown(function () {
+        playSound(parseInt(this.dataset.id));
     });
 });
 
@@ -63,17 +64,12 @@ function blackBaseHeightEqualsWidth() {
 
 function blackBaseWidthEqualsHeight() {
     var blackBase = $('#black-base');
-    var blackCircleHeight = blackBase.height();
-    blackBase.width(blackCircleHeight);
+    blackBase.width(blackBase.height());
 }
 
 function resizeButtons() {
-    var buttonRow = $('.button-row'),
-        rowHeight = buttonRow.height(),
-        rowWidth = buttonRow.width();
-    var buttons = $('.button');
+    var rowHeight = $('.button-row').height();
     buttons.height(rowHeight * .8);
-    
 }
 
 function chooseRandomButton() {
@@ -87,33 +83,59 @@ function chooseRandomButton() {
 }
 
 function showPattern(pattern) {
-    function highlightNextButton(pattern) {
-        setTimeout(function () {
-            var nextButton = pattern.charAt(i++),
-                buttonId = buttons[nextButton];
-            console.log(buttonId);
-            $(buttonId).css('opacity', 1); // light up button
-            setTimeout(function () {
-                $(buttonId).css('opacity', 0.7);
-                if (i >= pattern.length) enableButtons();
-            }, 700);
-            if (i < pattern.length) highlightNextButton(pattern);
-        }, 1000);
-    }
     var i = 0;
     highlightNextButton(pattern);
-}
 
+    function highlightNextButton(pattern) {
+        setTimeout(function () {
+            var color = parseInt(pattern.charAt(i++)),
+                buttonIds = ['#green-button', '#red-button', '#yellow-button', '#blue-button'],
+                buttonId = buttonIds[color],
+                button = $(buttonId),
+                patternLength = pattern.length;
+            button.css('opacity', 1); // light up button
+            playSound(color);
+            setTimeout(function () {
+                button.css('opacity', 0.7);
+                if (i >= patternLength) enableButtons();
+            }, 700);
+            if (i < patternLength) highlightNextButton(pattern);
+        }, 1000);
+    }
+}
 function disableButtons() {
-    console.log("DISABLE!");
-    $('.button').prop('disabled', true);
+    buttons.prop('disabled', true);
 }
 
 function enableButtons() {
-    console.log("EnABLE!");
-    $('.button').prop('disabled', false);
+    buttons.prop('disabled', false);
 }
 
 function updateScoreboard(currentPattern) {
     $('#score-counter').text(currentPattern.length - 1);
+}
+
+function playSound(color) {
+    switch (color) {
+        case GREEN:
+            var greenButtonAudio = document.getElementById('green-button-audio');
+            greenButtonAudio.currentTime = 0;
+            greenButtonAudio.play();
+            break;
+        case RED:
+            var redButtonAudio = document.getElementById('red-button-audio');
+            redButtonAudio.currentTime = 0;
+            redButtonAudio.play();
+            break;
+        case YELLOW:
+            var yellowButtonAudio = document.getElementById('yellow-button-audio');
+            yellowButtonAudio.currentTime = 0;
+            yellowButtonAudio.play();
+            break;
+        case BLUE:
+            var blueButtonAudio = document.getElementById('blue-button-audio');
+            blueButtonAudio.currentTime = 0;
+            blueButtonAudio.play();
+            break;
+    }
 }

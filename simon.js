@@ -82,7 +82,7 @@ function chooseRandomButton() {
         YELLOW: 2
         BLUE:   3
     */
-    return Math.floor((Math.random() * 3));
+    return Math.floor((Math.random() * 4));
 }
 
 function showPattern(pattern) {

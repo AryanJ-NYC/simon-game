@@ -58,7 +58,7 @@ $(document).ready(function () {
 
 function blackBaseHeightEqualsWidth() {
     var blackBase = $('#black-base');
-    var blackCircleWidth = blackBase.width();
+    var blackCircleWidth = blackBase.css("width");
     blackBase.height(blackCircleWidth);
 }
 
@@ -68,8 +68,11 @@ function blackBaseWidthEqualsHeight() {
 }
 
 function resizeButtons() {
-    var rowHeight = $('.button-row').height();
-    buttons.height(rowHeight * .8);
+    var rowHeight = $('#black-base').height();
+    var width = $('#black-base').width();
+    console.log("Height: " + rowHeight + " Width: " + width);
+    buttons.height(rowHeight * .45);
+    buttons.width(width * .45);
 }
 
 function chooseRandomButton() {

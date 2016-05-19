@@ -26,43 +26,42 @@ body, #container-row {
     height: 50%;
 }
 
-#green-button {
-    top: 9%;
-    background: #43B929;
+.button {
+    padding: 0;
+    top: 5%;
+    margin-left: 5%;
     opacity: 0.7;
+}
+
+#green-button {
+    background: #43B929;
     border-top-left-radius: 100%;
 }
 
 #red-button {
-    top: 9%;
     background: #E92B04;
-    opacity: 0.7;
     border-top-right-radius: 100%;
 }
 
 #yellow-button {
-    top: 9%;
     background: #E5E503;
-    opacity: 0.7;
     border-bottom-left-radius: 100%;
 }
 
 #blue-button {
-    top: 9%;
     background: #000BFC;
-    opacity: 0.7;
     border-bottom-right-radius: 100%;
 }
 
 #white-box {
     height: 45%;
     width: 45%;
-    top: 27.5%;
-    left: 27.5%;
+    top: 28.5%;
+    left: 28.5%;
     background-color: white;
     position: absolute;
     border-radius: 50%;
-    border: 20px #101010 solid;
+    border: 15px #222 solid;
 }
 
 #simon-text {

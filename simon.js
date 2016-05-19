@@ -92,10 +92,10 @@ function showPattern(pattern) {
             var nextButton = pattern.charAt(i++),
                 buttonId = buttons[nextButton];
             console.log(buttonId);
-            $(buttonId).css('opacity', 1);
+            $(buttonId).css('opacity', 1); // light up button
             setTimeout(function () {
                 $(buttonId).css('opacity', 0.7);
-                enableButtons()
+                if (i >= pattern.length) enableButtons();
             }, 700);
             if (i < pattern.length) highlightNextButton(pattern);
         }, 1000);

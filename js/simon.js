@@ -115,7 +115,7 @@ function enableButtons() {
 }
 
 function updateScoreboard(currentPattern) {
-    $('#score-counter').text(currentPattern.length - 1);
+    $('#score-display').text(currentPattern.length - 1);
 }
 
 function playSound(color) {

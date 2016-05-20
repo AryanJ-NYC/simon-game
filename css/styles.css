@@ -1,7 +1,8 @@
 body {
-    background-image: url("laser-background.jpg");
+    background-image: url("../laser-background.jpg");
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%;
+    font-family: 'Orbitron', sans-serif;
 }
 
 body, #container-row {
@@ -65,9 +66,7 @@ body, #container-row {
 }
 
 #simon-text {
-    font-family: 'Orbitron', sans-serif;
     font-size: 5vw;
-    margin-top: 27.5%;
     margin-bottom: 0;
 }
 
@@ -76,8 +75,8 @@ button:focus {
 }
 
 #score-label {
-    font-family: 'Orbitron', sans-serif;
     margin: 0;
+    font-size: 2.2vw;
 }
 
 #score-counter {
@@ -86,4 +85,18 @@ button:focus {
     background: #36000f;
     color: #78002b;
     font-size: 2.3vw;
+}
+
+#reset-label {
+    font-size: 2.2vw;
+    vertical-align: bottom;
+    margin: 0;
+}
+
+#reset-button {
+    border-radius: 100%;
+    padding: 6px 12px;
+    vertical-align: top;
+    width: 5px;
+    height: 5px;
 }

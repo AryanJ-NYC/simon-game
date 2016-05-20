@@ -33,6 +33,7 @@ $(document).ready(function () {
     buttons.click(function () {
         playerChoicePattern += parseInt(this.dataset.id);
         if (playerChoicePattern == currentPattern) {
+            // correct pattern
             disableButtons();
             playerChoicePattern = "";
             currentPattern += chooseRandomButton();
@@ -40,11 +41,14 @@ $(document).ready(function () {
             showPattern(currentPattern);
             pressNumber = 0;
         } else if (playerChoicePattern.charAt(pressNumber) != currentPattern.charAt(pressNumber)) {
+            // incorrect pattern
+            $('#score-display').text("! !");
             disableButtons();
             playerChoicePattern = "";
             showPattern(currentPattern);
             pressNumber = 0;
         } else {
+            // ongoing pattern
             ++pressNumber;
         }
     });

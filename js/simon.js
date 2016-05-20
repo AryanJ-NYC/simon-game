@@ -2,7 +2,10 @@ var GREEN = 0,
     RED = 1,
     YELLOW = 2,
     BLUE = 3,
-    buttons = $('.button');
+    buttons = $('.button'),
+    currentPattern = "",
+    playerChoicePattern = "",
+    pressNumber = 0;
 
 $(document).ready(function () {
     disableButtons();
@@ -23,14 +26,9 @@ $(document).ready(function () {
         resizeButtons();
     });
 
-    var powerOn = true,
-        playerChoicePattern = "",
-        currentPattern = "",
-        pressNumber = 0;
+    var powerOn = true;
 
-    currentPattern += chooseRandomButton();
-    updateScoreboard(currentPattern);
-    showPattern(currentPattern);
+    resetGame();
 
     buttons.click(function () {
         playerChoicePattern += parseInt(this.dataset.id);
@@ -108,14 +106,22 @@ function showPattern(pattern) {
 }
 function disableButtons() {
     buttons.prop('disabled', true);
+    $('#reset-button').prop('disabled', true);
 }
 
 function enableButtons() {
     buttons.prop('disabled', false);
+    $('#reset-button').prop('disabled', false);
 }
 
 function updateScoreboard(currentPattern) {
     $('#score-display').text(currentPattern.length - 1);
+}
+
+function resetGame() {
+    currentPattern += chooseRandomButton();
+    updateScoreboard(currentPattern);
+    showPattern(currentPattern);
 }
 
 function playSound(color) {
@@ -141,4 +147,14 @@ function playSound(color) {
             blueButtonAudio.play();
             break;
     }
+}
+
+function resetGame() {
+    disableButtons();
+    currentPattern = "";
+    currentPattern += chooseRandomButton();
+    playerChoicePattern = "";
+    updateScoreboard(currentPattern);
+    showPattern(currentPattern);
+    pressNumber = 0;
 }

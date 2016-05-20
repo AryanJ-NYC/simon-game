@@ -11,10 +11,11 @@ $(document).ready(function () {
     disableButtons();
     blackBaseHeightEqualsWidth();
     resizeButtons();
+    resetGame();
 
     var initialWindowHeight = $(window).height(),
         initialWindowWidth = $(window).width;
-    
+
     $(window).resize(function () {
         var currentWindowHeight = $(window).height(),
             currentWindowWidth = $(window).width();
@@ -25,10 +26,6 @@ $(document).ready(function () {
         }
         resizeButtons();
     });
-
-    var powerOn = true;
-
-    resetGame();
 
     buttons.click(function () {
         playerChoicePattern += parseInt(this.dataset.id);
@@ -120,12 +117,6 @@ function enableButtons() {
 
 function updateScoreboard(currentPattern) {
     $('#score-display').text(currentPattern.length - 1);
-}
-
-function resetGame() {
-    currentPattern += chooseRandomButton();
-    updateScoreboard(currentPattern);
-    showPattern(currentPattern);
 }
 
 function playSound(color) {

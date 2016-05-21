@@ -166,4 +166,6 @@ function resetGame() {
     updateScoreboard(currentPattern);
     showPattern(currentPattern);
     pressNumber = 0;
+    buttonSpeed = 1000;
+    lightSpeed = 900;
 }

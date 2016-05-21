@@ -40,6 +40,7 @@ $(document).ready(function () {
         } else if (playerChoicePattern.charAt(pressNumber) != currentPattern.charAt(pressNumber)) {
             // incorrect pattern
             $('#score-display').text("! !");
+            setTimeout(updateScoreboard, 750, currentPattern);
             disableButtons();
             playerChoicePattern = "";
             showPattern(currentPattern);

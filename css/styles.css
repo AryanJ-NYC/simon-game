@@ -67,6 +67,7 @@ body, #container-row {
 
 #simon-text {
     font-size: 5vw;
+    margin-top: 15%;
     margin-bottom: 0;
 }
 
@@ -97,6 +98,6 @@ button:focus {
     border-radius: 100%;
     padding: 6px 12px;
     vertical-align: top;
-    width: 5px;
-    height: 5px;
+    width: 8px;
+    height: 8px;
 }

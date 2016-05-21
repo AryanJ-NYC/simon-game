@@ -62,6 +62,11 @@ $(document).ready(function () {
 
     buttons.mousedown(function () {
         playSound(parseInt(this.dataset.id));
+        $(this).css('opacity', 1);
+    });
+
+    buttons.mouseup(function () {
+        $(this).css('opacity', 0.7);
     });
 
     var strictModeSelect = $('#strict-mode-select');

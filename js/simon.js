@@ -2,6 +2,8 @@ var GREEN = 0,
     RED = 1,
     YELLOW = 2,
     BLUE = 3,
+    buttonSpeed = 1000,
+    lightSpeed = 900,
     buttons = $('.button'),
     currentPattern = "",
     playerChoicePattern = "",
@@ -32,6 +34,8 @@ $(document).ready(function () {
         playerChoicePattern += parseInt(this.dataset.id);
         if (playerChoicePattern == currentPattern) {
             // correct pattern
+            buttonSpeed *= .92;
+            lightSpeed *= .92;
             disableButtons();
             playerChoicePattern = "";
             currentPattern += chooseRandomButton();
@@ -50,7 +54,6 @@ $(document).ready(function () {
                 pressNumber = 0;
                 setTimeout(updateScoreboard, 750, currentPattern);
             }
-
         } else {
             // ongoing pattern
             ++pressNumber;
@@ -111,9 +114,9 @@ function showPattern(pattern) {
             setTimeout(function () {
                 button.css('opacity', 0.7);
                 if (i >= patternLength) enableButtons();
-            }, 700);
+            }, lightSpeed);
             if (i < patternLength) highlightNextButton(pattern);
-        }, 1000);
+        }, buttonSpeed);
     }
 }
 function disableButtons() {

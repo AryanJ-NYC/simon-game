@@ -5,7 +5,8 @@ var GREEN = 0,
     buttons = $('.button'),
     currentPattern = "",
     playerChoicePattern = "",
-    pressNumber = 0;
+    pressNumber = 0,
+    strictMode = document.getElementById('strict-mode-select').checked;
 
 $(document).ready(function () {
     disableButtons();
@@ -40,11 +41,16 @@ $(document).ready(function () {
         } else if (playerChoicePattern.charAt(pressNumber) != currentPattern.charAt(pressNumber)) {
             // incorrect pattern
             $('#score-display').text("! !");
-            setTimeout(updateScoreboard, 750, currentPattern);
-            disableButtons();
-            playerChoicePattern = "";
-            showPattern(currentPattern);
-            pressNumber = 0;
+            if (strictMode) {
+                setTimeout(resetGame, 750);
+            } else {
+                disableButtons();
+                playerChoicePattern = "";
+                showPattern(currentPattern);
+                pressNumber = 0;
+                setTimeout(updateScoreboard, 750, currentPattern);
+            }
+
         } else {
             // ongoing pattern
             ++pressNumber;
@@ -53,6 +59,11 @@ $(document).ready(function () {
 
     buttons.mousedown(function () {
         playSound(parseInt(this.dataset.id));
+    });
+
+    var strictModeSelect = $('#strict-mode-select');
+    strictModeSelect.change(function () {
+        strictMode = this.checked;
     });
 });
 
@@ -70,7 +81,6 @@ function blackBaseWidthEqualsHeight() {
 function resizeButtons() {
     var rowHeight = $('#black-base').height();
     var width = $('#black-base').width();
-    console.log("Height: " + rowHeight + " Width: " + width);
     buttons.height(rowHeight * .45);
     buttons.width(width * .45);
 }

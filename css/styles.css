@@ -24,56 +24,57 @@ body, #container-row {
 }
 
 .button-row {
-    height: 50%;
-}
-
-.button {
-    padding: 0;
-    top: 5%;
-    margin-left: 5%;
-    opacity: 0.7;
-}
-
-#green-button {
-    background: #43B929;
-    border-top-left-radius: 100%;
-}
-
-#red-button {
-    background: #E92B04;
-    border-top-right-radius: 100%;
-}
-
-#yellow-button {
-    background: #E5E503;
-    border-bottom-left-radius: 100%;
-}
-
-#blue-button {
-    background: #000BFC;
-    border-bottom-right-radius: 100%;
-}
-
-#white-box {
-    height: 45%;
-    width: 45%;
-    top: 28.5%;
-    left: 28.5%;
-    background-color: white;
-    position: absolute;
-    border-radius: 50%;
-    border: 15px #222 solid;
-}
-
-#simon-text {
-    font-size: 4vw;
-    margin-top: 15%;
-    margin-bottom: 0;
+height: 50%;
 }
 
 button:focus {
     outline: none;
 }
+
+.button {
+padding: 0;
+top: 5%;
+margin-left: 5%;
+opacity: 0.7;
+}
+
+#green-button {
+background: #43B929;
+border-top-left-radius: 100%;
+}
+
+#red-button {
+background: #E92B04;
+border-top-right-radius: 100%;
+}
+
+#yellow-button {
+background: #E5E503;
+border-bottom-left-radius: 100%;
+}
+
+#blue-button {
+background: #000BFC;
+border-bottom-right-radius: 100%;
+}
+
+#white-box {
+height: 45%;
+width: 45%;
+top: 28.5%;
+left: 28.5%;
+background-color: white;
+position: absolute;
+border-radius: 50%;
+border: 15px #222 solid;
+}
+
+#simon-text {
+font-size: 4vw;
+margin-top: 15%;
+margin-bottom: 0;
+}
+
 
 #score-label {
     margin: 0;
@@ -86,11 +87,11 @@ button:focus {
     border: 4px #331426 solid;
     background: #36000f;
     color: #78002b;
-    font-size: 2.3vw;
+    font-size: 2vw;
 }
 
 .button-label {
-    font-size: 1.8vw;
+    font-size: 1.4vw;
     vertical-align: bottom;
     margin: 0;
 }

@@ -70,7 +70,7 @@ border: 15px #222 solid;
 }
 
 #simon-text {
-font-size: 4vw;
+font-size: 4vh;
 margin-top: 15%;
 margin-bottom: 0;
 }
@@ -87,7 +87,7 @@ margin-bottom: 0;
     border: 4px #331426 solid;
     background: #36000f;
     color: #78002b;
-    font-size: 2vw;
+    font-size: 3vw;
 }
 
 .button-label {
@@ -105,12 +105,16 @@ margin-bottom: 0;
 }
 
 /* For phone screens */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 615px) {
     .button-label {
         font-size: 1.4vw;
     }
     
     #score-label {
         font-size: 2.2vw;
+    }
+    
+    #simon-text {
+        font-size: 4vw;
     }
 }

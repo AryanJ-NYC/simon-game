@@ -78,7 +78,7 @@ margin-bottom: 0;
 
 #score-label {
     margin: 0;
-    font-size: 2.2vw;
+    font-size: 3vh;
 }
 
 #score-counter {
@@ -91,7 +91,7 @@ margin-bottom: 0;
 }
 
 .button-label {
-    font-size: 1.4vw;
+    font-size: 1.5vh;
     vertical-align: bottom;
     margin: 0;
 }
@@ -102,4 +102,15 @@ margin-bottom: 0;
     vertical-align: top;
     width: 8px;
     height: 8px;
+}
+
+/* For phone screens */
+@media only screen and (max-width: 500px) {
+    .button-label {
+        font-size: 1.4vw;
+    }
+    
+    #score-label {
+        font-size: 2.2vw;
+    }
 }
